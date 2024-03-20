@@ -14,10 +14,10 @@ public class LiquidContainer : Container, IHazardNotifier
     {
         double maxCapacityPercentage = IsHazardous ? 0.5 : 0.9; 
 
-        if (cargoWeight > MaxCargoCapacity * maxCapacityPercentage)
+        /*if (cargoWeight > MaxCargoCapacity * maxCapacityPercentage)
         {
             throw new OverfillException("Attempted to load cargo exceeding container's capacity limits.");
-        }
+        }*/
         Console.WriteLine($"Cargo loaded into liquid container. Cargo weight: {cargoWeight} kg");
     }
 

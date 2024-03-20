@@ -32,7 +32,7 @@ public class Container
         return serialNumber;
     }
 
-    // Metoda do ładowania kontenera
+    
     public  void LoadCargo(double cargoWeight)
     {
         if (cargoWeight > MaxCargoCapacity)
