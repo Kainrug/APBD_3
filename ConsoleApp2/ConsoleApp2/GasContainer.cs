@@ -12,10 +12,11 @@ public class GasContainer : Container, IHazardNotifier
 
     public new void LoadCargo(double cargoWeight)
     {
-        if (cargoWeight > MaxCargoCapacity)
+        /*if (cargoWeight > MaxCargoCapacity)
         {
             throw new OverfillException("Attempted to load cargo exceeding container's capacity limits.");
         }
+        */
 
         
         Console.WriteLine($"Cargo loaded into gas container. Cargo weight: {cargoWeight} kg");
