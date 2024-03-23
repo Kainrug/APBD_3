@@ -31,7 +31,7 @@ class Program
         Console.WriteLine($"Refrigerated Container Number: {refrigeratedContainer.SerialNumber}");
 
         
-        var containerShip = new ContainerShip(25.0, 100, 500); // Max weight capacity set to 500 tons
+        var containerShip = new ContainerShip(25.0, 100, 500);
         containerShip.PrepareForVoyage();
 
         

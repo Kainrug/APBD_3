@@ -10,15 +10,23 @@ public class LiquidContainer : Container, IHazardNotifier
         Capacity = capacity;
     }
 
-    public new void LoadCargo(double cargoWeight)
+    public new void LoadCargo(double weight)
     {
-        double maxCapacityPercentage = IsHazardous ? 0.5 : 0.9; 
-
-        /*if (cargoWeight > MaxCargoCapacity * maxCapacityPercentage)
+        if (IsHazardous)
         {
-            throw new OverfillException("Attempted to load cargo exceeding container's capacity limits.");
-        }*/
-        Console.WriteLine($"Cargo loaded into liquid container. Cargo weight: {cargoWeight} kg");
+            if (CargoWeight + weight > MaxCargoCapacity * 0.5)
+            {
+                Console.WriteLine("Loaded dangerous cargo that is 50% more than payload");
+            }
+            else
+            {
+                if (CargoWeight + weight > MaxCargoCapacity * 0.9)
+                {
+                    Console.WriteLine("Loaded liquid to more than 90% of the payload");
+                }
+            }
+        }
+        base.LoadCargo(weight);
     }
 
     public void Notify(string message, string containerNumber)

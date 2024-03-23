@@ -5,7 +5,7 @@ public class Container
 {
     
 
-    public double CargoWeight { get; private set; } 
+    public double CargoWeight { get; protected set; } 
     public double Height { get; private set; } 
     public double Weight { get; protected set; } 
     public double Depth { get; private set; } 
@@ -33,20 +33,15 @@ public class Container
     }
 
     
-    public  void LoadCargo(double cargoWeight)
+    public  void LoadCargo(double weight)
     {
-        if (cargoWeight > MaxCargoCapacity)
-        {
-            throw new OverfillException("Attempted to load cargo exceeding container's capacity limits.");
-        }
-
-        
-        Console.WriteLine($"Cargo loaded into container. Cargo weight: {cargoWeight + Weight} kg");
+        CargoWeight += weight;
+        Console.WriteLine($"Cargo loaded into container. Cargo weight: {CargoWeight} kg");
     }
     
     public void UnloadCargo()
     {
-        Weight = 0;
+        CargoWeight = 0;
         Console.WriteLine("Container unloaded.");
     }
 

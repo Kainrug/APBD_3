@@ -10,16 +10,10 @@ public class GasContainer : Container, IHazardNotifier
         Pressure = pressure;
     }
 
-    public new void LoadCargo(double cargoWeight)
+    public new void LoadCargo(double weight)
     {
-        /*if (cargoWeight > MaxCargoCapacity)
-        {
-            throw new OverfillException("Attempted to load cargo exceeding container's capacity limits.");
-        }
-        */
-
-        
-        Console.WriteLine($"Cargo loaded into gas container. Cargo weight: {cargoWeight} kg");
+        CargoWeight += weight;
+        Console.WriteLine($"Cargo loaded into gas container. Cargo weight: {CargoWeight} kg");
     }
 
     public void Notify(string message, string containerNumber)
@@ -29,7 +23,7 @@ public class GasContainer : Container, IHazardNotifier
 
     public  void UnloadCargo()
     {
-        Weight *= 0.05;
-        Console.WriteLine("Gas container unloaded, 5% of cargo remaining in the container.");
+        CargoWeight *= 0.05;
+        Console.WriteLine("Gas container unloaded, 5% of cargo remaining in the container. Remains :" + CargoWeight + "kg");
     }
 }
